@@ -1,22 +1,57 @@
 package com.gestion_fournisseurs.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "fournisseurs")
 public class Fournisseur {
-    private String nom;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String societe;
+    private String adresse;
+    private String contact;
+
+    @Column(unique = true, nullable = false)
     private String email;
 
-    public Fournisseur() {}
+    private String telephone;
+    private String ville;
+    private String ice;
 
-    public Fournisseur(String nom, String email) {
-        this.nom = nom;
-        this.email = email;
+    // ---- Getters et Setters ----
+    public Long getId() {
+        return id;
     }
 
-    public String getNom() {
-        return nom;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public String getSociete() {
+        return societe;
+    }
+
+    public void setSociete(String societe) {
+        this.societe = societe;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public String getEmail() {
@@ -27,8 +62,27 @@ public class Fournisseur {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Fournisseur{nom='" + nom + "', email='" + email + "'}";
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getIce() {
+        return ice;
+    }
+
+    public void setIce(String ice) {
+        this.ice = ice;
     }
 }
